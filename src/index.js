@@ -1,5 +1,9 @@
 import { createStore } from "redux";
 
-const store = createStore(() => ["a", "b", "c"], [1, 2, 3]);
+const reducer = () => {
+  return ["a", "b", "c", "ef"];
+};
+
+const store = createStore(reducer);
 
 window.store = store;
