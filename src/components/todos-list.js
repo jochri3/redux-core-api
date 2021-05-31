@@ -1,4 +1,4 @@
-import { TodoItem } from "./todo-item.js";
+import { TodoItem } from "./todo-item";
 
 const todoList = document.getElementById("todo-list");
 
@@ -8,3 +8,5 @@ export const allTodos = () => {
     todoList.appendChild(TodoItem({ ...todo }));
   }
 };
+
+allTodos();

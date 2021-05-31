@@ -10,8 +10,9 @@
   <body>
     <h1>Todo list</h1>
     <h2>Ajouter todo</h2>
-    <form>
-      <input type="text" placeholder="Faire mes devoirs" />
+    <form id="todo-form">
+      <!-- On va s'en service pour créer 2 states => todolist et données du formulaire -->
+      <input type="text" name="todo" placeholder="Faire mes devoirs" />
       <input type="submit" value="Ajouter" />
     </form>
     <ul id="todo-list" class="todos"></ul>
