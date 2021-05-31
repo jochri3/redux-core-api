@@ -3,6 +3,7 @@ import { TodoItem } from "./todo-item";
 const todoList = document.getElementById("todo-list");
 
 export const allTodos = () => {
+  todoList.innerHTML = "";
   const todos = store.getState();
   for (let todo of todos) {
     todoList.appendChild(TodoItem({ ...todo }));
@@ -10,3 +11,7 @@ export const allTodos = () => {
 };
 
 allTodos();
+
+store.subscribe(() => {
+  allTodos();
+});
