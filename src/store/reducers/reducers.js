@@ -10,19 +10,21 @@ const initialState = {
     { id: uuiv4(), todo: "Manger", completed: false },
     { id: uuiv4(), todo: "Aller à la salle de Gymn", completed: false },
   ],
-  todoForm: { todoName: "likasu" },
+  todoForm: { todoName: "" },
 };
 
 export const reducer = (state = initialState, action) => {
   if (action.type === ADD_TODO) {
     return {
       ...state,
-      todos: {
+      todos: [
         ...state.todos,
-        id: uuiv4(),
-        todo: action.payload.todo,
-        completed: false,
-      },
+        {
+          id: uuiv4(),
+          todo: state.todoForm.todoName,
+          completed: false,
+        },
+      ],
     };
   }
   if (action.type === DELETE_TODO) {
@@ -35,5 +37,6 @@ export const reducer = (state = initialState, action) => {
   if (action.type === FORM_UPDATE_INPUT_FIELD) {
     return { ...state, todoForm: { todoName: action.payload.value } };
   }
+
   return state;
 };

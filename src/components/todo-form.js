@@ -10,6 +10,12 @@ todoForm.addEventListener("input", (event) => {
 
 todoForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  store.dispatch(addTodo(formData["todo"]));
+  store.dispatch(addTodo());
   todoName.value = "";
+});
+
+//A l'intérieur de la fonction dispatch on doit encore invoquer getState()
+//Controlled input
+window.store.subscribe(() => {
+  todoName.value = store.getState().todoForm.todoName;
 });

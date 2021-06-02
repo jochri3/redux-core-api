@@ -4,10 +4,9 @@ import {
   FORM_UPDATE_INPUT_FIELD,
 } from "../action.types";
 
-export const addTodo = (todo) => {
+export const addTodo = () => {
   return {
     type: ADD_TODO,
-    payload: { todo },
   };
 };
 export const deleteTodo = (id) => ({
