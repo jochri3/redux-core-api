@@ -2,6 +2,7 @@ import {
   ADD_TODO,
   DELETE_TODO,
   FORM_UPDATE_INPUT_FIELD,
+  TOGGLE_TODO,
 } from "../action.types";
 
 export const addTodo = () => {
@@ -18,5 +19,7 @@ export const updateFormField = (value) => ({
   type: FORM_UPDATE_INPUT_FIELD,
   payload: { value },
 });
+
+export const toggleTodo = (id) => ({ type: TOGGLE_TODO, payload: { id } });
 
 export const resetForm = () => ({ type: FORM_RESET });

@@ -3,6 +3,7 @@ import {
   ADD_TODO,
   DELETE_TODO,
   FORM_UPDATE_INPUT_FIELD,
+  TOGGLE_TODO,
 } from "../action.types";
 
 const initialState = {
@@ -36,6 +37,18 @@ export const reducer = (state = initialState, action) => {
 
   if (action.type === FORM_UPDATE_INPUT_FIELD) {
     return { ...state, todoForm: { todoName: action.payload.value } };
+  }
+
+  if (action.type === TOGGLE_TODO) {
+    return {
+      ...state,
+      todos: state.todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, completed: todo.completed ? false : true };
+        }
+        return todo;
+      }),
+    };
   }
 
   return state;
