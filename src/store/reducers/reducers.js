@@ -1,12 +1,16 @@
 import { v4 as uuiv4 } from "uuid";
-import { ADD_TODO, DELETE_TODO } from "../action.types";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  FORM_UPDATE_INPUT_FIELD,
+} from "../action.types";
 
 const initialState = {
   todos: [
     { id: uuiv4(), todo: "Manger", completed: false },
     { id: uuiv4(), todo: "Aller à la salle de Gymn", completed: false },
   ],
-  todoForm: { todoName: "" },
+  todoForm: { todoName: "likasu" },
 };
 
 export const reducer = (state = initialState, action) => {
@@ -26,6 +30,10 @@ export const reducer = (state = initialState, action) => {
       ...state,
       todos: state.todos.filter((todo) => todo.id !== action.payload.id),
     };
+  }
+
+  if (action.type === FORM_UPDATE_INPUT_FIELD) {
+    return { ...state, todoForm: { todoName: action.payload.value } };
   }
   return state;
 };

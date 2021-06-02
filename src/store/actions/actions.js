@@ -1,4 +1,8 @@
-import { ADD_TODO, DELETE_TODO } from "../action.types";
+import {
+  ADD_TODO,
+  DELETE_TODO,
+  FORM_UPDATE_INPUT_FIELD,
+} from "../action.types";
 
 export const addTodo = (todo) => {
   return {

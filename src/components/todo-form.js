@@ -1,11 +1,11 @@
-import { addTodo } from "../store/actions/actions";
+import { addTodo, updateFormField } from "../store/actions/actions";
 
 const todoForm = document.querySelector("#todo-form");
 const todoName = document.querySelector("#todo");
-const formData = {};
+todoName.value = store.getState().todoForm.todoName;
 
 todoForm.addEventListener("input", (event) => {
-  formData[event.target.name] = event.target.value;
+  store.dispatch(updateFormField(event.target.value));
 });
 
 todoForm.addEventListener("submit", (event) => {
