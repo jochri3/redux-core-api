@@ -1,3 +1,5 @@
+import { deleteTodo } from "../store/actions";
+
 export const TodoItem = ({ id, todo, completed }) => {
   const li = document.createElement("li");
   const todoName = document.createTextNode(todo);
@@ -15,6 +17,6 @@ export const TodoItem = ({ id, todo, completed }) => {
 
   //add delete methode
   deleteButton.appendChild(deleteButtonName);
-  deleteButton.addEventListener("click", () => alert("Supprimer todo"));
+  deleteButton.addEventListener("click", () => store.dispatch(deleteTodo(id)));
   return li;
 };

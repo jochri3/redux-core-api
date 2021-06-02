@@ -22,5 +22,4 @@ const reducer = (state = initialState, action) => {
 
 const store = createStore(reducer);
 
-
 window.store = store;
