@@ -1,6 +1,7 @@
 import { addTodo } from "../store/actions";
 
 const todoForm = document.querySelector("#todo-form");
+const todoName = document.querySelector("#todo");
 const formData = {};
 
 todoForm.addEventListener("input", (event) => {
@@ -10,4 +11,5 @@ todoForm.addEventListener("input", (event) => {
 todoForm.addEventListener("submit", (event) => {
   event.preventDefault();
   store.dispatch(addTodo(formData["todo"]));
+  todoName.value = "";
 });
