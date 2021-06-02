@@ -1,4 +1,4 @@
-import { addTodo, updateFormField } from "../store/actions/actions";
+import { addTodo, resetForm, updateFormField } from "../store/actions/actions";
 
 const todoForm = document.querySelector("#todo-form");
 const todoName = document.querySelector("#todo");
@@ -11,11 +11,11 @@ todoForm.addEventListener("input", (event) => {
 todoForm.addEventListener("submit", (event) => {
   event.preventDefault();
   store.dispatch(addTodo());
-  todoName.value = "";
+  store.dispatch(resetForm());
 });
 
 //A l'intérieur de la fonction dispatch on doit encore invoquer getState()
 //Controlled input
-window.store.subscribe(() => {
+store.subscribe(() => {
   todoName.value = store.getState().todoForm.todoName;
 });
