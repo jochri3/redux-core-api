@@ -1,4 +1,4 @@
-import { deleteTodo } from "../store/actions";
+import { deleteTodo } from "../store/actions/actions";
 
 export const TodoItem = ({ id, todo, completed }) => {
   const li = document.createElement("li");

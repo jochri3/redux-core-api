@@ -1,4 +1,4 @@
-import { addTodo } from "../store/actions";
+import { addTodo } from "../store/actions/actions";
 
 const todoForm = document.querySelector("#todo-form");
 const todoName = document.querySelector("#todo");
