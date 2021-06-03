@@ -4,7 +4,7 @@ const initialState = {
   todoForm: { todoName: "" },
 };
 
-export const reducer = (state = initialState, action) => {
+export const formReducer = (state = initialState, action) => {
   if (action.type === FORM_UPDATE_INPUT_FIELD) {
     return { ...state, todoForm: { todoName: action.payload.value } };
   }
