@@ -6,3 +6,4 @@ See the importance of combine reducers
 Disuss rapidely about replaceReducer
 
 **2ème step**
+1 - Add a way of viewing a particular todo

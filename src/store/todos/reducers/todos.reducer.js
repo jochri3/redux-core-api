@@ -8,7 +8,7 @@ const initialState = {
   ],
 };
 
-export const todoReducer = (state = initialState, action) => {
+export const todosReducer = (state = initialState, action) => {
   if (action.type === DELETE_TODO) {
     return {
       ...state,
