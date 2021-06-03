@@ -1,5 +1,5 @@
 import { v4 as uuiv4 } from "uuid";
-import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../action.types";
+import { ADD_TODO, DELETE_TODO, TOGGLE_TODO } from "../action-types";
 
 const initialState = {
   todos: [
@@ -9,19 +9,6 @@ const initialState = {
 };
 
 export const todoReducer = (state = initialState, action) => {
-  if (action.type === ADD_TODO) {
-    return {
-      ...state,
-      todos: [
-        ...state.todos,
-        {
-          id: uuiv4(),
-          todo: state.todoForm.todoName,
-          completed: false,
-        },
-      ],
-    };
-  }
   if (action.type === DELETE_TODO) {
     return {
       ...state,
@@ -42,4 +29,20 @@ export const todoReducer = (state = initialState, action) => {
   }
 
   return state;
+};
+
+export const specialAddReducer = (state, action, form) => {
+  if (action.type === ADD_TODO) {
+    return {
+      ...state,
+      todos: [
+        ...state.todos,
+        {
+          id: uuiv4(),
+          todo: form.todoName,
+          completed: false,
+        },
+      ],
+    };
+  }
 };

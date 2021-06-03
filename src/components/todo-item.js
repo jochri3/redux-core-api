@@ -1,4 +1,4 @@
-import { deleteTodo, toggleTodo } from "../store/actions/actions";
+import { deleteTodo, toggleTodo } from "../store/todos/actions";
 
 export const TodoItem = ({ id, todo, completed }) => {
   const li = document.createElement("li");

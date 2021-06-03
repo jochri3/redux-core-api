@@ -1,4 +1,4 @@
-import { FORM_RESET, FORM_UPDATE_INPUT_FIELD } from "../action.types";
+import { FORM_RESET, FORM_UPDATE_INPUT_FIELD } from "../action-types";
 
 const initialState = {
   todoName: "",
