@@ -15,7 +15,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "re": "^0.1.4",
     "redux": "^4.1.0",
+    "redux-logger": "^3.0.6",
     "uuid": "^3.4.0"
   }
 }
