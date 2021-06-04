@@ -1,7 +1,6 @@
 import { compose, createStore, applyMiddleware } from "redux";
 import { asyncMiddleware } from "./middlewares/async";
 import { rootReducer } from "./root-reducer";
-// import logger from "redux-logger";
 
 const middlewares = [asyncMiddleware];
 if (process.env.NODE_ENV !== "production") {

@@ -1,23 +1,28 @@
 import { deleteTodo, toggleTodo } from "../store/todos/actions";
 
+const deleteTodoItem = (id) => {
+  store.dispatch(deleteTodo(id));
+};
+
+const toggleTodoItem = (id) => {
+  store.dispatch(toggleTodo(id));
+};
+
 export const TodoItem = ({ id, todo, completed }) => {
-  const li = document.createElement("li");
-  const todoName = document.createTextNode(todo);
-  li.classList.add("todo");
+  const todoItem = document.createElement("li");
+  todoItem.appendChild(document.createTextNode(todo));
+
+  todoItem.classList.add("todo");
   if (completed) {
-    li.classList.add("completed");
+    todoItem.classList.add("completed");
   }
 
-  li.appendChild(todoName);
-
-  //button
   const deleteButton = document.createElement("button");
-  const deleteButtonName = document.createTextNode("X");
-  li.appendChild(deleteButton);
-  li.addEventListener("click", () => store.dispatch(toggleTodo(id)));
+  deleteButton.appendChild(document.createTextNode("X"));
 
-  //add delete methode
-  deleteButton.appendChild(deleteButtonName);
-  deleteButton.addEventListener("click", () => store.dispatch(deleteTodo(id)));
-  return li;
+  todoItem.appendChild(deleteButton);
+  todoItem.addEventListener("click", () => toggleTodoItem(id));
+
+  deleteButton.addEventListener("click", () => deleteTodoItem(id));
+  return todoItem;
 };

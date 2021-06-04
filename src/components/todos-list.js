@@ -10,8 +10,6 @@ export const allTodos = () => {
   }
 };
 
-allTodos();
-
 store.subscribe(() => {
   allTodos();
 });
