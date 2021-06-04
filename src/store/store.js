@@ -1,4 +1,5 @@
-import { compose, createStore } from "redux";
+import { compose, createStore, applyMiddleware } from "redux";
+import { asyncMiddleware } from "./middlewares/async";
 import { rootReducer } from "./root-reducer";
 
 //initialState,enhances
@@ -26,6 +27,7 @@ const performanceTest = (createStore) => (reducer) => {
 const store = createStore(
   rootReducer,
   compose(
+    applyMiddleware(asyncMiddleware),
     logger,
     performanceTest,
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

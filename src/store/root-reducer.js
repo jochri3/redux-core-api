@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import { formReducer, todoReducer, specialAddReducer } from "./todos/reducers";
 import { ADD_TODO } from "./todos/action-types";
+import { usersReducer } from "./users/users.reducer";
 
 const combinedReducer = combineReducers({
   todoForm: formReducer,
   todos: todoReducer,
+  users: usersReducer,
 });
 
 const crossSliceReducer = (state, action) => {

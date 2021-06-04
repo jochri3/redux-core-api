@@ -2,14 +2,12 @@ export const asyncMiddleware =
   ({ dispatch }) =>
   (next) =>
   (action) => {
-    if (!action.paylaod || !action.paylaod.then) {
-      console.log("Not yet resolved : ", action);
+    if (!action.payload || !action.payload.then) {
       return next(action);
     }
 
-    console.log("Resolved : ", action);
-    action.paylaod.then((res) => {
-      const newAction = dispatch({ ...action, paylaod: res });
+    action.payload.then((res) => {
+      const newAction = dispatch({ ...action, payload: res });
       return next(newAction);
     });
   };
