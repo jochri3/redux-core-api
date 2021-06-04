@@ -4,7 +4,7 @@ import { rootReducer } from "./root-reducer";
 //initialState,enhances
 const logger = (createStore) => (reducer) => {
   const loggerReducer = (state, action) => {
-    console.log("prevstate : ", state);
+    console.log("prevstate : ", action, state);
     const newState = reducer(state, action);
     console.log("nextstate : ", newState);
     return newState;
@@ -12,9 +12,20 @@ const logger = (createStore) => (reducer) => {
   return createStore(loggerReducer);
 };
 
+const performanceTest = (createStore) => (reducer) => {
+  const logPerformance = (state, action) => {
+    console.time("time elapsed");
+    const newState = reducer(state, action);
+    console.timeEnd("time elapsed");
+    return newState;
+  };
+
+  return createStore(logPerformance);
+};
+
 const store = createStore(
   rootReducer,
-  logger
+  compose(logger, performanceTest)
 
   // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
