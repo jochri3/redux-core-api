@@ -25,9 +25,11 @@ const performanceTest = (createStore) => (reducer) => {
 
 const store = createStore(
   rootReducer,
-  compose(logger, performanceTest)
-
-  // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  compose(
+    logger,
+    performanceTest,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
 );
 
 window.store = store;
